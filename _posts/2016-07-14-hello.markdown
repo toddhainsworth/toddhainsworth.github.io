@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Hello!"
+date:   2016-07-14 22:50:11 +0930
+categories: update
+---
+
+Hello! Welcome to my little slice of the internet!
+
+Feel free to browse around, I have an [about section]( /about ) that you might be interested in!
