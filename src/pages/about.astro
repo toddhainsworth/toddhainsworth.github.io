@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About -Todd Hainsworth" description="About Todd Hainsworth, Senior Software Engineer at Aligent.">
+  <h1>About</h1>
+
+  <section class="about">
+    <p>
+      Hi! I'm Todd 👋 I'm a Software Engineer from Adelaide, South Australia!
+    </p>
+
+    <p>
+      I work a lot within the microservice space.
+      Most of my work involves designing, prototyping and delivering bespoke integrations between
+      ecommerce solutions, ERPs and PIMs.
+    </p>
+
+
+    <p>
+      I care about building things that are fit for purpose - not over-engineered, not under-built.
+      I believe it's important to ship something that works, then refine it often with real feedback
+      from both non-technical and technical stakeholders.
+    </p>
+
+    <h2>What I value</h2>
+    <ul>
+      <li>
+        <strong>Diverse teams</strong> - different backgrounds and perspectives produce better outcomes.
+        Homogeneous teams have blind spots.
+      </li>
+      <li>
+        <strong>All ideas considered</strong> - the best solutions often come from unexpected directions.
+        An environment where people feel safe to contribute ideas is one where good ideas actually surface.
+      </li>
+      <li>
+        <strong>Fit for purpose, refined often</strong> - getting something workable in front of people early
+        beats perfect solutions delivered late. Iterate from there.
+      </li>
+    </ul>
+
+    <h2>Outside of work</h2>
+    <p>
+      When I'm not writing code, I'm usually reading or thinking about electric vehicles.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .about h2 {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: -0.5rem;
+  }
+
+  .about ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .about li {
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+  }
+
+  .about strong {
+    color: var(--text);
+  }
+</style>

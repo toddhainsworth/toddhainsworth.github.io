@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    name: 'toddhainsworth.github.io',
+    description: 'This site. Built with Astro and deployed to GitHub Pages.',
+    url: 'https://github.com/toddhainsworth/toddhainsworth.github.io',
+    role: 'Author',
+  },
+  {
+    name: 'aligent/cdk-constructs',
+    description: 'A library of reusable AWS CDK constructs used across Aligent projects.',
+    url: 'https://github.com/aligent/cdk-constructs',
+    role: 'Contributor',
+  },
+  {
+    name: 'aligent/microservice-development-utilities',
+    description: 'Shared utilities for building and testing microservices at Aligent.',
+    url: 'https://github.com/aligent/microservice-development-utilities',
+    role: 'Contributor',
+  },
+];
+---
+
+<BaseLayout title="Projects — Todd Hainsworth" description="Projects and open source contributions.">
+  <h1>Projects</h1>
+
+  <ul class="project-list">
+    {projects.map((project) => (
+      <li>
+        <div class="project-header">
+          <a href={project.url} target="_blank" rel="noopener">{project.name}</a>
+          <span class="role">{project.role}</span>
+        </div>
+        <p>{project.description}</p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .project-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .project-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .project-header a {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .role {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.1rem 0.4rem;
+  }
+
+  .project-list p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+</style>

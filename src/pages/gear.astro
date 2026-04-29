@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const stack = [
+  {
+    category: 'Editor',
+    items: [
+      { name: 'NeoVim', tag: 'neovim', note: 'Go-to, customizable, minimal editor' },
+    ],
+  },
+  {
+    category: 'AI',
+    items: [
+      { name: 'Claude', tag: 'ai', note: 'Day-to-day pair programming and research' },
+    ],
+  },
+  {
+    category: 'Cloud',
+    items: [
+      { name: 'AWS CDK', tag: 'aws-cdk', note: 'Infrastructure as code' },
+    ],
+  },
+  {
+    category: 'Tech',
+    items: [
+      { name: 'Gadget', tag: 'gadget', note: 'Exciting integration and app platform for building full-stack web apps fast' },
+      { name: 'TypeScript', tag: 'typescript', note: 'Go-to for most projects' },
+      { name: 'Go', tag: 'go', note: 'An exciting addition to my repertoire' },
+      { name: 'Rust', tag: 'rust', note: 'A challenging next-step' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Gear — Todd Hainsworth" description="Tools and tech I use day to day.">
+  <h1>Gear</h1>
+  <p class="intro">The tools and tech I reach for day to day.</p>
+
+  <div class="stack">
+    {stack.map(({ category, items }) => (
+      <section>
+        <h2>{category}</h2>
+        <ul>
+          {items.map(({ name, tag, note }) => (
+            <li>
+              {tag
+                ? <a class="name" href={`/blog/tag/${tag}`}>{name}</a>
+                : <span class="name">{name}</span>
+              }
+              {note && <span class="note">{note}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  h2 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .name {
+    font-weight: 500;
+    font-size: 0.95rem;
+    min-width: 160px;
+  }
+
+  .note {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+</style>

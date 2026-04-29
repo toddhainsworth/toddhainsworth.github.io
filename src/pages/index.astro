@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Todd Hainsworth">
+  <section class="hero">
+    <h1>Todd Hainsworth</h1>
+    <p class="title">Senior Software Engineer</p>
+    <p class="pitch">
+      Building practical integrations on AWS. Writing about software, teams, and craft.
+    </p>
+    <div class="links">
+      <a href="/about">About me</a>
+      <a href="/blog">Blog</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: 4rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .title {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .pitch {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  .links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .links a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .links a:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+    text-decoration: none;
+  }
+</style>
