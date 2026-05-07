@@ -55,6 +55,8 @@ const nav = [
       <slot />
     </main>
 
+    <div class="nav-overlay" aria-hidden="true"></div>
+
     <footer>
       <div class="container">
         <span>© {new Date().getFullYear()} Todd Hainsworth</span>
@@ -66,19 +68,26 @@ const nav = [
 <script>
   const toggle = document.querySelector('.menu-toggle') as HTMLButtonElement;
   const ul = document.querySelector('header nav ul') as HTMLUListElement;
+  const overlay = document.querySelector('.nav-overlay') as HTMLDivElement;
+
+  function closeMenu() {
+    ul.classList.remove('open');
+    overlay.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.classList.remove('open');
+  }
 
   toggle?.addEventListener('click', () => {
     const isOpen = ul.classList.toggle('open');
+    overlay.classList.toggle('open', isOpen);
     toggle.setAttribute('aria-expanded', String(isOpen));
     toggle.classList.toggle('open', isOpen);
   });
 
+  overlay?.addEventListener('click', closeMenu);
+
   ul?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      ul.classList.remove('open');
-      toggle?.setAttribute('aria-expanded', 'false');
-      toggle?.classList.remove('open');
-    });
+    link.addEventListener('click', closeMenu);
   });
 </script>
 
@@ -187,6 +196,21 @@ const nav = [
     header nav ul a {
       font-size: 1rem;
     }
+  }
+
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  .nav-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   main.container {
